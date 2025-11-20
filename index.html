@@ -229,7 +229,19 @@
 
     td {
       color: #e5e7eb;
-    }
+  }
+
+/* Warna mengikut status tarikh */
+    tr.past-row td {
+      color: #f87171; /* merah untuk program lepas */
+  }
+    tr.today-row td {
+      color: #60a5fa; /* biru untuk program hari ini */
+  }
+    tr.future-row td {
+      color: #e5e7eb; /* putih untuk program akan datang */
+  }
+
 
     /* Kolum tarikh kecil & tetap */
     th.col-tarikh,
@@ -561,56 +573,126 @@
     }
 
     function renderTable(data) {
-      tableBody.innerHTML = "";
-      tableHeadRow.innerHTML = "";
+  tableBody.innerHTML = "";
+  tableHeadRow.innerHTML = "";
 
-      if (!data || data.length === 0) {
-        rowCount.textContent = "0 rekod";
-        return;
+  if (!data || data.length === 0) {
+    rowCount.textContent = "0 rekod";
+    return;
+  }
+
+  // Ambil keys dari item pertama (header)
+  const headers = Object.keys(data[0]);
+
+  // Bina header table
+  headers.forEach((h) => {
+    const th = document.createElement("th");
+    th.textContent = h;
+    const lower = h.toLowerCase();
+    if (lower.includes("tarikh")) {
+      th.classList.add("col-tarikh");
+    }
+    tableHeadRow.appendChild(th);
+  });
+
+  // Cari header tarikh
+  const dateHeader = headers.find((h) => h.toLowerCase().includes("tarikh"));
+
+  // Tarikh hari ini (tanpa masa)
+  const today = new Date();
+  const todayDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+
+  // Susun data ikut tarikh (paling awal -> paling lewat)
+  const sorted = [...data].sort((a, b) => {
+    if (!dateHeader) return 0;
+
+    const va = a[dateHeader];
+    const vb = b[dateHeader];
+
+    const daRaw = va ? new Date(va) : null;
+    const dbRaw = vb ? new Date(vb) : null;
+
+    if (!daRaw && !dbRaw) return 0;
+    if (!daRaw) return 1;
+    if (!dbRaw) return -1;
+
+    const da = new Date(
+      daRaw.getFullYear(),
+      daRaw.getMonth(),
+      daRaw.getDate()
+    );
+    const db = new Date(
+      dbRaw.getFullYear(),
+      dbRaw.getMonth(),
+      dbRaw.getDate()
+    );
+
+    return da - db; // tukar ke (db - da) kalau mahu yang terbaru di atas
+  });
+
+  // Bina rows
+  sorted.forEach((row) => {
+    const tr = document.createElement("tr");
+
+    // Tentukan status program: lepas / hari ini / akan datang
+    if (dateHeader && row[dateHeader]) {
+      const dRaw = new Date(row[dateHeader]);
+      if (!isNaN(dRaw)) {
+        const dDate = new Date(
+          dRaw.getFullYear(),
+          dRaw.getMonth(),
+          dRaw.getDate()
+        );
+        if (dDate < todayDate) {
+          tr.classList.add("past-row");   // program lepas (merah)
+        } else if (dDate > todayDate) {
+          tr.classList.add("future-row"); // program akan datang (putih)
+        } else {
+          tr.classList.add("today-row");  // program hari ini (biru)
+        }
+      }
+    }
+
+    headers.forEach((h) => {
+      const td = document.createElement("td");
+      let value = row[h] ?? "";
+
+      const lower = h.toLowerCase();
+
+      // Jika kolum Tarikh → format cantik
+      if (lower.includes("tarikh")) {
+        const d = new Date(value);
+        if (!isNaN(d)) {
+          // Format tarikh ikut Malaysia: 1/11/2025
+          value = d.toLocaleDateString("ms-MY", {
+            day: "numeric",
+            month: "numeric",
+            year: "numeric",
+          });
+        }
+        td.classList.add("col-tarikh");
+      } else if (lower.includes("perihal") || lower.includes("aktiviti")) {
+        td.classList.add("col-perihal");
+      } else if (lower.includes("tempat")) {
+        td.classList.add("col-tempat");
+      } else if (lower.includes("catatan") || lower.includes("nota")) {
+        td.classList.add("col-catat");
       }
 
-      // Bina header table ikut susunan COLUMN_ORDER
-      COLUMN_ORDER.forEach((logical) => {
-        const actualKey = headerMap[logical];
-        if (!actualKey) return; // skip kalau tak jumpa
+      td.textContent = value;
+      tr.appendChild(td);
+    });
 
-        const th = document.createElement("th");
-        th.textContent = actualKey;
-        if (logical === "tarikh") th.classList.add("col-tarikh");
-        tableHeadRow.appendChild(th);
-      });
+    tableBody.appendChild(tr);
+  });
 
-      data.forEach((row) => {
-        const tr = document.createElement("tr");
+  rowCount.textContent = data.length + " rekod dipaparkan";
+}
 
-        COLUMN_ORDER.forEach((logical) => {
-          const actualKey = headerMap[logical];
-          if (!actualKey) return;
-
-          let value = row[actualKey] ?? "";
-          const lower = logical;
-          const td = document.createElement("td");
-
-          if (lower === "tarikh") {
-            value = formatDateForDisplay(row[actualKey]);
-            td.classList.add("col-tarikh");
-          } else if (lower === "perihal") {
-            td.classList.add("col-perihal");
-          } else if (lower === "tempat") {
-            td.classList.add("col-tempat");
-          } else if (lower === "catatan") {
-            td.classList.add("col-catat");
-          }
-
-          td.textContent = value;
-          tr.appendChild(td);
-        });
-
-        tableBody.appendChild(tr);
-      });
-
-      rowCount.textContent = data.length + " rekod dipaparkan";
-    }
 
     function applyFilters() {
       const term = searchInput.value.toLowerCase().trim();
