@@ -356,7 +356,8 @@
 <body>
   <div class="container">
     <header>
-      <h1>Paparan Aktiviti / Program APM Daerah Klang</h1>     
+      <h1>Paparan Aktiviti / Program APM Daerah Klang</h1>
+      
     </header>
 
     <div class="card">
@@ -383,7 +384,7 @@
             <input
               type="text"
               id="searchInput"
-              placeholder="Carian....."
+              placeholder="Carian...."
             />
           </div>
 
@@ -501,17 +502,15 @@
       data.forEach((row) => {
         const d = parseDateFromRow(row);
         if (!d) return;
-        const year = d.getFullYear();
-        const month = d.getMonth() + 1;
-        yearSet.add(year);
-        monthSet.add(month);
+        yearSet.add(d.getFullYear());
+        monthSet.add(d.getMonth() + 1);
       });
 
       // Reset options
       yearFilter.innerHTML = '<option value="">Semua Tahun</option>';
       monthFilter.innerHTML = '<option value="">Semua Bulan</option>';
 
-      // Tahun (sort ascending)
+      // Tambah tahun
       Array.from(yearSet)
         .sort((a, b) => a - b)
         .forEach((year) => {
@@ -521,12 +520,13 @@
           yearFilter.appendChild(opt);
         });
 
-      // Bulan (1–12)
+      // Nama bulan
       const monthNames = [
         "", "Januari", "Februari", "Mac", "April", "Mei", "Jun",
         "Julai", "Ogos", "September", "Oktober", "November", "Disember"
       ];
 
+      // Tambah bulan
       Array.from(monthSet)
         .sort((a, b) => a - b)
         .forEach((m) => {
@@ -535,6 +535,19 @@
           opt.textContent = monthNames[m] || m;
           monthFilter.appendChild(opt);
         });
+
+      // Default: tahun & bulan semasa (jika wujud dalam data)
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth() + 1;
+
+      if (yearSet.has(currentYear)) {
+        yearFilter.value = String(currentYear);
+      }
+
+      if (monthSet.has(currentMonth)) {
+        monthFilter.value = String(currentMonth);
+      }
     }
 
     function formatDateForDisplay(value) {
@@ -562,7 +575,6 @@
         if (!actualKey) return; // skip kalau tak jumpa
 
         const th = document.createElement("th");
-        // Papar nama original header dari sheet
         th.textContent = actualKey;
         if (logical === "tarikh") th.classList.add("col-tarikh");
         tableHeadRow.appendChild(th);
@@ -576,8 +588,7 @@
           if (!actualKey) return;
 
           let value = row[actualKey] ?? "";
-          const lower = logical; // logical key dah lowercase
-
+          const lower = logical;
           const td = document.createElement("td");
 
           if (lower === "tarikh") {
@@ -660,4 +671,3 @@
   </script>
 </body>
 </html>
-
