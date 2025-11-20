@@ -6,10 +6,10 @@
   <title>Paparan Aktiviti APM Klang</title>
   <style>
     :root {
-      --bg: #050816;
-      --bg-card: #111827;
+      --bg: #020617;
+      --bg-card: #020617;
       --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-soft: rgba(56, 189, 248, 0.25);
       --text: #e5e7eb;
       --muted: #9ca3af;
       --danger: #f97373;
@@ -34,7 +34,7 @@
 
     .container {
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
     }
 
     header {
@@ -43,7 +43,7 @@
     }
 
     header h1 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -51,17 +51,17 @@
 
     header p {
       margin-top: 4px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--muted);
     }
 
     .card {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
-      border-radius: 16px;
-      padding: 12px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.12);
-      backdrop-filter: blur(10px);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9));
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      backdrop-filter: blur(12px);
     }
 
     .toolbar {
@@ -70,7 +70,7 @@
       gap: 8px;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .toolbar-left {
@@ -83,37 +83,49 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--accent);
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.9);
     }
 
     .badge-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.95);
     }
 
     .last-update {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--muted);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
     }
 
     .search-box {
       flex: 1;
-      min-width: 160px;
+      min-width: 170px;
       display: flex;
       align-items: center;
       gap: 6px;
       background: rgba(15, 23, 42, 0.9);
       border-radius: 999px;
-      padding: 4px 10px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 6px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .search-box span {
+      font-size: 0.8rem;
     }
 
     .search-box input {
@@ -122,27 +134,64 @@
       border: none;
       outline: none;
       color: var(--text);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
 
     .search-box input::placeholder {
       color: var(--muted);
     }
 
+    .select-small {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      outline: none;
+    }
+
+    .refresh-btn {
+      background: var(--accent);
+      color: #0b1120;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+
+    .refresh-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(56, 189, 248, 0.6);
+      background: #0ea5e9;
+    }
+
+    .refresh-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 14px rgba(56, 189, 248, 0.4);
+    }
+
     .table-wrapper {
       margin-top: 8px;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.4);
       max-height: 70vh;
       overflow-y: auto;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), rgba(15, 23, 42, 0.96));
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.97));
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
     thead {
@@ -153,29 +202,29 @@
     }
 
     th, td {
-      padding: 8px 10px;
-      border-bottom: 1px solid rgba(30, 64, 175, 0.3);
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(30, 64, 175, 0.4);
       text-align: left;
       vertical-align: top;
     }
 
     th {
-      font-weight: 600;
-      font-size: 0.78rem;
+      font-weight: 700;
+      font-size: 0.82rem;
       color: #e5e7eb;
       white-space: nowrap;
     }
 
     tbody tr:nth-child(even) {
-      background-color: rgba(15, 23, 42, 0.9);
+      background-color: rgba(15, 23, 42, 0.93);
     }
 
     tbody tr:nth-child(odd) {
-      background-color: rgba(15, 23, 42, 0.7);
+      background-color: rgba(15, 23, 42, 0.8);
     }
 
     tbody tr:hover {
-      background: rgba(30, 64, 175, 0.55);
+      background: rgba(30, 64, 175, 0.65);
     }
 
     td {
@@ -185,7 +234,7 @@
     .col-tarikh {
       white-space: nowrap;
       font-weight: 600;
-      font-size: 0.78rem;
+      font-size: 0.85rem;
     }
 
     .col-perihal {
@@ -194,7 +243,7 @@
 
     .col-tempat,
     .col-catat {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
@@ -203,8 +252,10 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 6px;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       color: var(--muted);
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
     .error {
@@ -215,7 +266,7 @@
 
     @media (max-width: 640px) {
       header h1 {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
       }
 
       .card {
@@ -223,11 +274,11 @@
       }
 
       th, td {
-        padding: 6px 8px;
+        padding: 7px 8px;
       }
 
       table {
-        font-size: 0.75rem;
+        font-size: 0.82rem;
       }
 
       .table-wrapper {
@@ -240,7 +291,7 @@
   <div class="container">
     <header>
       <h1>Paparan Aktiviti / Program APM Daerah Klang</h1>
-      <p>_______________</p>
+      <p>Senarai program & aktiviti yang direkodkan dalam Google Sheets (Apps Script API).</p>
     </header>
 
     <div class="card">
@@ -253,13 +304,27 @@
           <span class="last-update" id="lastUpdate">Sedang memuat data…</span>
         </div>
 
-        <div class="search-box">
-          <span>🔍</span>
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Cari tarikh / perihal / tempat / catatan…"
-          />
+        <div class="controls">
+          <select id="yearFilter" class="select-small">
+            <option value="">Semua Tahun</option>
+          </select>
+
+          <select id="monthFilter" class="select-small">
+            <option value="">Semua Bulan</option>
+          </select>
+
+          <div class="search-box">
+            <span>🔍</span>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Cari tarikh / perihal / tempat / catatan…"
+            />
+          </div>
+
+          <button id="refreshBtn" class="refresh-btn" type="button">
+            ↻ Refresh
+          </button>
         </div>
       </div>
 
@@ -267,11 +332,11 @@
         <table id="dataTable">
           <thead>
             <tr id="tableHeadRow">
-              <!-- header akan diisi melalui JS -->
+              <!-- header diisi melalui JS -->
             </tr>
           </thead>
           <tbody id="tableBody">
-            <!-- data akan diisi melalui JS -->
+            <!-- data diisi melalui JS -->
           </tbody>
         </table>
       </div>
@@ -286,6 +351,7 @@
   </div>
 
   <script>
+    // URL Apps Script awak
     const API_URL = "https://script.google.com/macros/s/AKfycbxaeyLXNpIEBJlV5e_rExltO_SrQud-_MNs6W37mhO73y9OROx3cs5auZaZPvbmY2tz/exec";
 
     let allData = [];
@@ -297,6 +363,32 @@
     const errorBox = document.getElementById("errorBox");
     const lastUpdate = document.getElementById("lastUpdate");
     const searchInput = document.getElementById("searchInput");
+    const yearFilter = document.getElementById("yearFilter");
+    const monthFilter = document.getElementById("monthFilter");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    // Susunan kolum yang kita nak (logik)
+    const COLUMN_ORDER = ["tarikh", "perihal", "tempat", "catatan"];
+
+    // Peta: nama logik → nama sebenar dalam JSON (case-insensitive)
+    let headerMap = {};
+
+    function normaliseHeaderName(name) {
+      return name ? String(name).toLowerCase() : "";
+    }
+
+    function buildHeaderMap(sampleRow) {
+      headerMap = {};
+      const keys = Object.keys(sampleRow || {});
+
+      COLUMN_ORDER.forEach((logical) => {
+        const found = keys.find((k) => {
+          const lower = normaliseHeaderName(k);
+          return lower.includes(logical);
+        });
+        if (found) headerMap[logical] = found;
+      });
+    }
 
     async function loadData() {
       loadingStatus.textContent = "Memuat data dari Google Sheets…";
@@ -308,7 +400,13 @@
         const data = await res.json();
 
         allData = Array.isArray(data) ? data : [];
-        renderTable(allData);
+
+        if (allData.length > 0) {
+          buildHeaderMap(allData[0]);
+          buildFilterOptions(allData);
+        }
+
+        applyFilters();
 
         const now = new Date();
         lastUpdate.textContent = "Kemas kini terakhir: " + now.toLocaleString("ms-MY");
@@ -320,6 +418,70 @@
       }
     }
 
+    function parseDateFromRow(row) {
+      const key = headerMap.tarikh;
+      if (!key) return null;
+      const raw = row[key];
+      if (!raw) return null;
+
+      const d = new Date(raw);
+      if (isNaN(d)) return null;
+      return d;
+    }
+
+    function buildFilterOptions(data) {
+      const yearSet = new Set();
+      const monthSet = new Set();
+
+      data.forEach((row) => {
+        const d = parseDateFromRow(row);
+        if (!d) return;
+        const year = d.getFullYear();
+        const month = d.getMonth() + 1;
+        yearSet.add(year);
+        monthSet.add(month);
+      });
+
+      // Reset options
+      yearFilter.innerHTML = '<option value="">Semua Tahun</option>';
+      monthFilter.innerHTML = '<option value="">Semua Bulan</option>';
+
+      // Tahun (sort ascending)
+      Array.from(yearSet)
+        .sort((a, b) => a - b)
+        .forEach((year) => {
+          const opt = document.createElement("option");
+          opt.value = String(year);
+          opt.textContent = year;
+          yearFilter.appendChild(opt);
+        });
+
+      // Bulan (1–12)
+      const monthNames = [
+        "", "Januari", "Februari", "Mac", "April", "Mei", "Jun",
+        "Julai", "Ogos", "September", "Oktober", "November", "Disember"
+      ];
+
+      Array.from(monthSet)
+        .sort((a, b) => a - b)
+        .forEach((m) => {
+          const opt = document.createElement("option");
+          opt.value = String(m);
+          opt.textContent = monthNames[m] || m;
+          monthFilter.appendChild(opt);
+        });
+    }
+
+    function formatDateForDisplay(value) {
+      const d = new Date(value);
+      if (isNaN(d)) return value || "";
+      return d.toLocaleDateString("ms-MY", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      });
+    }
+
     function renderTable(data) {
       tableBody.innerHTML = "";
       tableHeadRow.innerHTML = "";
@@ -329,73 +491,105 @@
         return;
       }
 
-      // Ambil keys dari item pertama (header)
-      const headers = Object.keys(data[0]);
+      // Bina header table ikut susunan COLUMN_ORDER
+      COLUMN_ORDER.forEach((logical) => {
+        const actualKey = headerMap[logical];
+        if (!actualKey) return; // skip kalau tak jumpa
 
-      // Bina header table
-      headers.forEach((h) => {
         const th = document.createElement("th");
-        th.textContent = h;
+        // Papar nama original header dari sheet
+        th.textContent = actualKey;
         tableHeadRow.appendChild(th);
       });
 
-      // Bina rows
       data.forEach((row) => {
-  const tr = document.createElement("tr");
+        const tr = document.createElement("tr");
 
-  headers.forEach((h, index) => {
-    const td = document.createElement("td");
-    let value = row[h] ?? "";
+        COLUMN_ORDER.forEach((logical) => {
+          const actualKey = headerMap[logical];
+          if (!actualKey) return;
 
-    const lower = h.toLowerCase();
+          let value = row[actualKey] ?? "";
+          const lower = logical; // logical key dah lowercase
 
-    // Jika kolum Tarikh → format cantik
-    if (lower.includes("tarikh")) {
-      const d = new Date(value);
-      if (!isNaN(d)) {
-        // Format tarikh ikut Malaysia: 1/11/2025
-        value = d.toLocaleDateString("ms-MY", {
-          day: "numeric",
-          month: "numeric",
-          year: "numeric",
+          const td = document.createElement("td");
+
+          if (lower === "tarikh") {
+            value = formatDateForDisplay(row[actualKey]);
+            td.classList.add("col-tarikh");
+          } else if (lower === "perihal") {
+            td.classList.add("col-perihal");
+          } else if (lower === "tempat") {
+            td.classList.add("col-tempat");
+          } else if (lower === "catatan") {
+            td.classList.add("col-catat");
+          }
+
+          td.textContent = value;
+          tr.appendChild(td);
         });
-      }
-      td.classList.add("col-tarikh");
-    } else if (lower.includes("perihal") || lower.includes("aktiviti")) {
-      td.classList.add("col-perihal");
-    } else if (lower.includes("tempat")) {
-      td.classList.add("col-tempat");
-    } else if (lower.includes("catatan") || lower.includes("nota")) {
-      td.classList.add("col-catat");
-    }
 
-    td.textContent = value;
-    tr.appendChild(td);
-  });
-
-  tableBody.appendChild(tr);
-});
-
+        tableBody.appendChild(tr);
+      });
 
       rowCount.textContent = data.length + " rekod dipaparkan";
     }
 
-    searchInput.addEventListener("input", () => {
+    function applyFilters() {
       const term = searchInput.value.toLowerCase().trim();
-      if (!term) {
-        renderTable(allData);
-        return;
+      const yearVal = yearFilter.value;
+      const monthVal = monthFilter.value;
+
+      let filtered = allData.slice();
+
+      // Tapis Tahun & Bulan
+      if (yearVal || monthVal) {
+        filtered = filtered.filter((row) => {
+          const d = parseDateFromRow(row);
+          if (!d) return false;
+          const rowYear = d.getFullYear();
+          const rowMonth = d.getMonth() + 1;
+
+          if (yearVal && String(rowYear) !== yearVal) return false;
+          if (monthVal && String(rowMonth) !== monthVal) return false;
+          return true;
+        });
       }
 
-      const filtered = allData.filter((row) => {
-        return Object.values(row).some((v) =>
-          String(v).toLowerCase().includes(term)
-        );
-      });
+      // Tapis search
+      if (term) {
+        filtered = filtered.filter((row) => {
+          return Object.values(row).some((v) =>
+            String(v).toLowerCase().includes(term)
+          );
+        });
+      }
 
       renderTable(filtered);
+    }
+
+    // Event listeners
+    searchInput.addEventListener("input", () => {
+      applyFilters();
     });
 
+    yearFilter.addEventListener("change", () => {
+      applyFilters();
+    });
+
+    monthFilter.addEventListener("change", () => {
+      applyFilters();
+    });
+
+    refreshBtn.addEventListener("click", () => {
+      // Clear filters & search, then reload dari server
+      searchInput.value = "";
+      yearFilter.value = "";
+      monthFilter.value = "";
+      loadData();
+    });
+
+    // Mula sekali
     loadData();
   </script>
 </body>
