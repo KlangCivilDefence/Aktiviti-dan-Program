@@ -1,321 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>AKTIVITI &amp; PROGRAM ANGKATAN PERTAHANAN AWAM DAERAH KLANG</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paparan Aktiviti APM Klang</title>
   <style>
-    :root{
-      --bd:#2a2a2a;--bg:#0b0b0c;--fg:#eaeaea;--muted:#9aa0a6;
-      --card:#111114;--accent:#1f6feb
+    :root {
+      --bg: #050816;
+      --bg-card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --danger: #f97373;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Arial,sans-serif;
-      margin:0;background:var(--bg);color:var(--fg);
-      -webkit-text-size-adjust:100%;
-    }
-    .container{max-width:1100px;margin:auto;padding:0 16px}
-    header{
-      border-bottom:1px solid var(--bd);
-      background:linear-gradient(180deg,#0d0f14 0%, #0b0b0c 100%);
-    }
-    .header-wrap{
-      display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;
-      padding:14px 0;
-    }
-    .logo{
-      width:64px;height:64px;border-radius:12px;background:#0f1116;
-      display:flex;align-items:center;justify-content:center;overflow:hidden;
-      border:1px solid var(--bd)
-    }
-    .logo img{max-width:100%;max-height:100%;object-fit:contain}
-    h1{
-      margin:0;font-size:22px;line-height:1.25;font-weight:700;
-      letter-spacing:.2px
-    }
-    .subtitle{margin-top:4px;color:var(--muted);font-size:12px}
-    main{padding:16px 0 24px}
-    .toolbar{
-      display:flex;gap:8px;row-gap:10px;flex-wrap:wrap;align-items:center;
-      margin-bottom:12px
-    }
-    input,button,select{
-      border:1px solid var(--bd);background:#121214;color:var(--fg);
-      border-radius:10px;padding:10px 12px;min-height:40px
-    }
-    input[type="date"]{padding:8px 10px}
-    button{cursor:pointer}
-    .pill{
-      font-size:12px;border:1px solid var(--bd);border-radius:999px;padding:6px 10px
-    }
-    .status{opacity:.85;font-size:12px;margin-left:auto}
-    .wrap{overflow:auto;border:1px solid var(--bd);border-radius:12px;background:var(--card)}
-    table{width:100%;border-collapse:separate;border-spacing:0;min-width:640px}
-    thead th{
-      position:sticky;top:0;background:#0f1116;border-bottom:1px solid var(--bd);
-      text-align:left;padding:10px;font-weight:700;cursor:pointer
-    }
-    tbody td{border-bottom:1px solid #222226;padding:10px;vertical-align:top}
-    tr:hover{background:#12131a}
-    .error{color:#ff7a7a;margin:6px 0}
-    .hidden{display:none}
-    .tag{font-size:11px;border:1px solid var(--bd);border-radius:6px;padding:2px 6px;margin-left:6px}
-    .muted{color:var(--muted);font-size:12px}
 
-    /* Mobile portrait tweaks */
-    @media (max-width: 600px){
-      .header-wrap{grid-template-columns:1fr;gap:10px;text-align:center;justify-items:center}
-      .logo{width:72px;height:72px}
-      h1{font-size:18px}
-      .toolbar{gap:6px}
-      input,button,select{font-size:14px;padding:10px 12px}
-      .status{flex-basis:100%;text-align:center;margin-left:0;margin-top:4px}
-      table{min-width:520px}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1f2937 0, #020617 40%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    header p {
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
+    }
+
+    .last-update {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .search-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 0.8rem;
+    }
+
+    .search-box input::placeholder {
+      color: var(--muted);
+    }
+
+    .table-wrapper {
+      margin-top: 8px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      max-height: 70vh;
+      overflow-y: auto;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), rgba(15, 23, 42, 0.96));
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.98));
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(30, 64, 175, 0.3);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: rgba(15, 23, 42, 0.7);
+    }
+
+    tbody tr:hover {
+      background: rgba(30, 64, 175, 0.55);
+    }
+
+    td {
+      color: #e5e7eb;
+    }
+
+    .col-tarikh {
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+
+    .col-perihal {
+      font-weight: 500;
+    }
+
+    .col-tempat,
+    .col-catat {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .error {
+      color: var(--danger);
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 1.1rem;
+      }
+
+      .card {
+        padding: 10px;
+      }
+
+      th, td {
+        padding: 6px 8px;
+      }
+
+      table {
+        font-size: 0.75rem;
+      }
+
+      .table-wrapper {
+        max-height: 65vh;
+      }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="container header-wrap">
-    <div class="logo">
-      <!-- Letak fail logo anda sebagai 'apm-logo.png' di root repo -->
-      <img src="apm-logo.png" alt="Logo APM" onerror="this.parentElement.style.display='none'">
+  <div class="container">
+    <header>
+      <h1>Paparan Aktiviti / Program APM Daerah Klang</h1>
+      <p>Data dijana terus dari Google Sheets (via Google Apps Script)</p>
+    </header>
+
+    <div class="card">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Live connected
+          </div>
+          <span class="last-update" id="lastUpdate">Sedang memuat data…</span>
+        </div>
+
+        <div class="search-box">
+          <span>🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari tarikh / perihal / tempat / catatan…"
+          />
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="dataTable">
+          <thead>
+            <tr id="tableHeadRow">
+              <!-- header akan diisi melalui JS -->
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- data akan diisi melalui JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="status-bar">
+        <span id="rowCount">0 rekod</span>
+        <span id="loadingStatus"></span>
+      </div>
+
+      <div class="error" id="errorBox"></div>
     </div>
-    <div>
-      <h1>AKTIVITI &amp; PROGRAM ANGKATAN PERTAHANAN AWAM DAERAH KLANG</h1>
-      <div class="subtitle">Senarai mengikut: Tarikh • Perihal • Tempat • Catatan</div>
-    </div>
-  </div>
-</header>
-
-<main class="container">
-  <div class="toolbar">
-    <input id="search" type="search" placeholder="Cari (semua lajur)..." aria-label="Carian" />
-    <label class="muted">Dari <input id="from" type="date" aria-label="Tarikh mula"></label>
-    <label class="muted">Hingga <input id="to" type="date" aria-label="Tarikh tamat"></label>
-    <select id="place" aria-label="Tapis Tempat">
-      <option value="">Semua Tempat</option>
-    </select>
-    <button id="reload" aria-label="Muat semula">Muat Semula</button>
-    <span class="pill">Auto-update on open</span>
-    <span id="status" class="status">Sedia.</span>
   </div>
 
-  <div id="error" class="error hidden"></div>
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycbxaeyLXNpIEBJlV5e_rExltO_SrQud-_MNs6W37mhO73y9OROx3cs5auZaZPvbmY2tz/exec";
 
-  <div class="wrap">
-    <table id="table" role="table">
-      <thead>
-        <tr id="thead">
-          <th data-key="Tarikh" scope="col">Tarikh</th>
-          <th data-key="Perihal" scope="col">Perihal</th>
-          <th data-key="Tempat" scope="col">Tempat</th>
-          <th data-key="Catatan" scope="col">Catatan</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-  </div>
+    let allData = [];
 
-  <p style="margin-top:12px" class="muted">
-    Sumber: <a id="sheetLink" target="_blank" rel="noopener">Google Sheets</a>
-    <span id="mapInfo" class="tag hidden">Pemetaan lajur automatik</span>
-  </p>
-</main>
+    const tableHeadRow = document.getElementById("tableHeadRow");
+    const tableBody = document.getElementById("tableBody");
+    const rowCount = document.getElementById("rowCount");
+    const loadingStatus = document.getElementById("loadingStatus");
+    const errorBox = document.getElementById("errorBox");
+    const lastUpdate = document.getElementById("lastUpdate");
+    const searchInput = document.getElementById("searchInput");
 
-<script>
-/** ======== KONFIGURASI: Sheet anda ======== **/
-const SHEET_ID  = "1k-eNytOfPdPhPr3gELfJSK_XNd6hp9nyHI9Pg3Ro7qE";
-const SHEET_GID = "0";
+    async function loadData() {
+      loadingStatus.textContent = "Memuat data dari Google Sheets…";
+      errorBox.textContent = "";
 
-/** Boleh override via URL ?sheetId=...&gid=... */
-const params = new URLSearchParams(location.search);
-const sheetId = params.get("sheetId") || SHEET_ID;
-const gid     = params.get("gid") || SHEET_GID;
+      try {
+        const res = await fetch(API_URL, { method: "GET" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
 
-document.getElementById("sheetLink").href =
-  `https://docs.google.com/spreadsheets/d/${sheetId}/edit#gid=${gid}`;
+        allData = Array.isArray(data) ? data : [];
+        renderTable(allData);
 
-const el = {
-  thead: document.getElementById("thead"),
-  tbody: document.getElementById("tbody"),
-  error: document.getElementById("error"),
-  status: document.getElementById("status"),
-  search: document.getElementById("search"),
-  from: document.getElementById("from"),
-  to: document.getElementById("to"),
-  place: document.getElementById("place"),
-  mapInfo: document.getElementById("mapInfo"),
-};
-
-const EXPECTED_HEADERS = ["tarikh","perihal","tempat","catatan"]; // lowercase
-let rowsRaw = [];       // [ [Tarikh,Perihal,Tempat,Catatan], ... ]
-
-function buildUrl(){
-  const bust = Date.now();
-  return `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}&cacheBust=${bust}`;
-}
-
-function parseGViz(text){
-  const json = text.trim().replace(/^[^{]+/,"").replace(/;?\\s*$/,"");
-  return JSON.parse(json);
-}
-
-// Normalisasi tarikh → Date | null
-function toDate(value){
-  if (value == null) return null;
-  const s = String(value).trim();
-  if (!s) return null;
-  const dmy = s.match(/^(\\d{1,2})[\\/\\-](\\d{1,2})[\\/\\-](\\d{2,4})$/);
-  const ymd = s.match(/^(\\d{4})[\\/\\-](\\d{1,2})[\\/\\-](\\d{1,2})$/);
-  let dt;
-  if (dmy){
-    let [_, d,m,y] = dmy;
-    if (y.length===2) y = String(2000 + Number(y));
-    dt = new Date(Number(y), Number(m)-1, Number(d));
-  } else if (ymd){
-    const [_, y,m,d] = ymd;
-    dt = new Date(Number(y), Number(m)-1, Number(d));
-  } else {
-    const t = Date.parse(s);
-    if (!isNaN(t)) dt = new Date(t);
-  }
-  return (dt && !isNaN(+dt)) ? dt : null;
-}
-
-function fmtDate(dt){
-  if (!dt) return "";
-  const d = String(dt.getDate()).padStart(2,"0");
-  const m = String(dt.getMonth()+1).padStart(2,"0");
-  const y = dt.getFullYear();
-  return `${d}/${m}/${y}`;
-}
-
-function showError(msg){
-  if (!msg){ el.error.classList.add("hidden"); el.error.textContent=""; }
-  else { el.error.classList.remove("hidden"); el.error.textContent = msg; }
-}
-function setStatus(s){ el.status.textContent = s; }
-
-function mapHeaders(labels){
-  const norm = labels.map(l => (l||"").toString().trim().toLowerCase());
-  const keys = ["tarikh","perihal","tempat","catatan"];
-  const idxs = keys.map(k => norm.indexOf(k));
-  const allFound = idxs.every(i => i >= 0);
-  el.mapInfo.classList.toggle("hidden", allFound);
-  return { tarikh: idxs[0], perihal: idxs[1], tempat: idxs[2], catatan: idxs[3] };
-}
-
-function escapeHtml(s){
-  return String(s).replace(/[&<>\"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;','\\'':'&#39;' }[c]));
-}
-
-function ensurePlaceOptions(rows){
-  const unique = new Set(rows.map(r => r[2]).filter(Boolean));
-  el.place.innerHTML = `<option value=\"\">Semua Tempat</option>` +
-    Array.from(unique).sort().map(v=>`<option>${escapeHtml(v)}</option>`).join("");
-}
-
-async function loadData(){
-  setStatus("Memuat data...");
-  showError(null);
-  try{
-    const res = await fetch(buildUrl(), { cache:"no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const text = await res.text();
-    const parsed = parseGViz(text);
-
-    const labels = (parsed.table.cols || []).map(c => (c.label || c.id || "").toString());
-    const rows = (parsed.table.rows || []).map(r =>
-      (r.c || []).map(cell => cell ? (cell.f ?? cell.v ?? "") : "")
-    );
-
-    const map = mapHeaders(labels);
-    const std = rows.map(cells=>{
-      const tarikh  = map.tarikh  >= 0 ? cells[map.tarikh]  : "";
-      const perihal = map.perihal >= 0 ? cells[map.perihal] : "";
-      const tempat  = map.tempat  >= 0 ? cells[map.tempat]  : "";
-      const catatan = map.catatan >= 0 ? cells[map.catatan] : "";
-      return [tarikh, perihal, tempat, catatan];
-    });
-
-    rowsRaw = std;
-    render(std);
-    ensurePlaceOptions(std);
-
-    setStatus(`Selesai. ${std.length} baris. Dikemas kini: ${new Date().toLocaleString()}`);
-  }catch(err){
-    console.error(err);
-    showError("Gagal memuat data. Pastikan Sheet dipublish (File → Share → Publish to the web) dan akses awam dihidupkan.");
-    setStatus("Ralat.");
-  }
-}
-
-function applyFilters(rows){
-  const q = el.search.value.toLowerCase().trim();
-  const from = el.from.value ? new Date(el.from.value) : null;
-  const to   = el.to.value   ? new Date(el.to.value)   : null;
-  const place= el.place.value.toLowerCase().trim();
-
-  return rows.filter(([tarikh, perihal, tempat, catatan])=>{
-    if (place && String(tempat).toLowerCase() !== place) return false;
-    const dt = toDate(tarikh);
-    if (from && (!dt || dt < new Date(from.getFullYear(),from.getMonth(),from.getDate()))) return false;
-    if (to && (!dt || dt > new Date(to.getFullYear(),to.getMonth(),to.getDate(),23,59,59,999))) return false;
-    if (!q) return true;
-    const blob = [tarikh,perihal,tempat,catatan].join(" ").toLowerCase();
-    return blob.includes(q);
-  });
-}
-
-let sortState = { col: 0, dir: -1 };
-function sortRows(rows){
-  const idx = sortState.col, dir = sortState.dir;
-  return rows.slice().sort((a,b)=>{
-    if (idx===0){
-      const da = toDate(a[0]); const db = toDate(b[0]);
-      if (da && db) return (da - db) * dir;
-      if (da) return -1*dir;
-      if (db) return  1*dir;
-      return String(a[0]).localeCompare(String(b[0])) * dir;
-    }else{
-      const av = String(a[idx]??""); const bv = String(b[idx]??"");
-      return av.localeCompare(bv) * dir;
+        const now = new Date();
+        lastUpdate.textContent = "Kemas kini terakhir: " + now.toLocaleString("ms-MY");
+        loadingStatus.textContent = "Selesai";
+      } catch (err) {
+        console.error(err);
+        loadingStatus.textContent = "";
+        errorBox.textContent = "Gagal memuat data. Sila cuba refresh laman ini.";
+      }
     }
-  });
-}
 
-function render(rows){
-  const filtered = applyFilters(rows);
-  const sorted = sortRows(filtered);
-  el.tbody.innerHTML = sorted.map(([tarikh,perihal,tempat,catatan])=>{
-    const d = fmtDate(toDate(tarikh)) || escapeHtml(tarikh);
-    return `<tr>
-      <td>${d}</td>
-      <td>${escapeHtml(perihal)}</td>
-      <td>${escapeHtml(tempat)}</td>
-      <td>${escapeHtml(catatan)}</td>
-    </tr>`;
-  }).join("");
-  setStatus(`Dipapar: ${sorted.length} / ${rows.length} baris`);
-}
+    function renderTable(data) {
+      tableBody.innerHTML = "";
+      tableHeadRow.innerHTML = "";
 
-Array.from(el.thead.querySelectorAll("th")).forEach((th,i)=>{
-  th.addEventListener("click", ()=>{
-    sortState.col === i ? sortState.dir*=-1 : (sortState={col:i,dir:(i===0?-1:1)});
-    render(rowsRaw);
+      if (!data || data.length === 0) {
+        rowCount.textContent = "0 rekod";
+        return;
+      }
+
+      // Ambil keys dari item pertama (header)
+      const headers = Object.keys(data[0]);
+
+      // Bina header table
+      headers.forEach((h) => {
+        const th = document.createElement("th");
+        th.textContent = h;
+        tableHeadRow.appendChild(th);
+      });
+
+      // Bina rows
+      data.forEach((row) => {
+  const tr = document.createElement("tr");
+
+  headers.forEach((h, index) => {
+    const td = document.createElement("td");
+    let value = row[h] ?? "";
+
+    const lower = h.toLowerCase();
+
+    // Jika kolum Tarikh → format cantik
+    if (lower.includes("tarikh")) {
+      const d = new Date(value);
+      if (!isNaN(d)) {
+        // Format tarikh ikut Malaysia: 1/11/2025
+        value = d.toLocaleDateString("ms-MY", {
+          day: "numeric",
+          month: "numeric",
+          year: "numeric",
+        });
+      }
+      td.classList.add("col-tarikh");
+    } else if (lower.includes("perihal") || lower.includes("aktiviti")) {
+      td.classList.add("col-perihal");
+    } else if (lower.includes("tempat")) {
+      td.classList.add("col-tempat");
+    } else if (lower.includes("catatan") || lower.includes("nota")) {
+      td.classList.add("col-catat");
+    }
+
+    td.textContent = value;
+    tr.appendChild(td);
   });
+
+  tableBody.appendChild(tr);
 });
 
-el.search.addEventListener("input", ()=>render(rowsRaw));
-el.from.addEventListener("change", ()=>render(rowsRaw));
-el.to.addEventListener("change", ()=>render(rowsRaw));
-el.place.addEventListener("change", ()=>render(rowsRaw));
-document.getElementById("reload").addEventListener("click", loadData);
 
-loadData();
-</script>
+      rowCount.textContent = data.length + " rekod dipaparkan";
+    }
+
+    searchInput.addEventListener("input", () => {
+      const term = searchInput.value.toLowerCase().trim();
+      if (!term) {
+        renderTable(allData);
+        return;
+      }
+
+      const filtered = allData.filter((row) => {
+        return Object.values(row).some((v) =>
+          String(v).toLowerCase().includes(term)
+        );
+      });
+
+      renderTable(filtered);
+    });
+
+    loadData();
+  </script>
 </body>
 </html>
