@@ -260,6 +260,7 @@
     }
 
     .col-tempat,
+    .col-masa,
     .col-catat {
       font-size: 0.82rem;
       color: var(--muted);
@@ -268,6 +269,7 @@
     /* Pastikan teks selain tarikh boleh wrap */
     td.col-perihal,
     td.col-tempat,
+    td.col-masa,
     td.col-catat {
       white-space: normal !important;
     }
@@ -357,6 +359,7 @@
       td.col-tarikh::before { content: "Tarikh"; }
       td.col-perihal::before { content: "Perihal"; }
       td.col-tempat::before { content: "Tempat"; }
+      td.col-masa::before { content: "Masa"; }
       td.col-catat::before { content: "Catatan"; }
 
       td.col-tarikh {
@@ -678,8 +681,10 @@
       } else if (lower.includes("perihal") || lower.includes("aktiviti")) {
         td.classList.add("col-perihal");
       } else if (lower.includes("tempat")) {
-        td.classList.add("col-tempat");
-      } else if (lower.includes("catatan") || lower.includes("nota")) {
+        td.classList.add("col-tempat")
+      }else if (lower.includes("masa") || lower.includes("waktu")) {
+        td.classList.add("col-masa");
+      }else if (lower.includes("catatan") || lower.includes("nota")) {
         td.classList.add("col-catat");
       }
 
