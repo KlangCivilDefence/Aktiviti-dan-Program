@@ -15,12 +15,12 @@
       --danger: #f97373;
     }
 
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
@@ -32,28 +32,16 @@
       padding: 16px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1100px;
-    }
+    .container { width: 100%; max-width: 1100px; }
 
-    header {
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
+    header { text-align: center; margin-bottom: 16px; }
     header h1 {
       font-size: 1.8rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
-
-    header p {
-      margin-top: 4px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
+    header p { margin-top: 4px; font-size: 0.9rem; color: var(--muted); }
 
     .card {
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9));
@@ -73,11 +61,7 @@
       margin-bottom: 10px;
     }
 
-    .toolbar-left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+    .toolbar-left { display: flex; flex-direction: column; gap: 4px; }
 
     .badge {
       display: inline-flex;
@@ -92,17 +76,12 @@
     }
 
     .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
+      width: 7px; height: 7px; border-radius: 999px;
       background: #22c55e;
       box-shadow: 0 0 10px rgba(34, 197, 94, 0.95);
     }
 
-    .last-update {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
+    .last-update { font-size: 0.75rem; color: var(--muted); }
 
     .controls {
       display: flex;
@@ -124,10 +103,7 @@
       border: 1px solid rgba(148, 163, 184, 0.5);
     }
 
-    .search-box span {
-      font-size: 0.8rem;
-    }
-
+    .search-box span { font-size: 0.8rem; }
     .search-box input {
       flex: 1;
       background: transparent;
@@ -136,10 +112,7 @@
       color: var(--text);
       font-size: 0.85rem;
     }
-
-    .search-box input::placeholder {
-      color: var(--muted);
-    }
+    .search-box input::placeholder { color: var(--muted); }
 
     .select-small {
       background: rgba(15, 23, 42, 0.9);
@@ -166,16 +139,10 @@
       box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
       transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
     }
-
     .refresh-btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 10px 24px rgba(56, 189, 248, 0.6);
       background: #0ea5e9;
-    }
-
-    .refresh-btn:active {
-      transform: translateY(0);
-      box-shadow: 0 6px 14px rgba(56, 189, 248, 0.4);
     }
 
     .table-wrapper {
@@ -188,11 +155,7 @@
       background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.97));
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 
     thead {
       position: sticky;
@@ -215,64 +178,51 @@
       white-space: nowrap;
     }
 
-    tbody tr:nth-child(even) {
-      background-color: rgba(15, 23, 42, 0.93);
-    }
+    tbody tr:nth-child(even) { background-color: rgba(15, 23, 42, 0.93); }
+    tbody tr:nth-child(odd) { background-color: rgba(15, 23, 42, 0.8); }
+    tbody tr:hover { background: rgba(30, 64, 175, 0.65); }
 
-    tbody tr:nth-child(odd) {
-      background-color: rgba(15, 23, 42, 0.8);
-    }
-
-    tbody tr:hover {
-      background: rgba(30, 64, 175, 0.65);
-    }
-
-    td {
-      color: #e5e7eb;
-  }
-
-/* Warna mengikut status tarikh */
-    tr.past-row td {
-      color: #f87171; /* merah untuk program lepas */
-  }
-    tr.today-row td {
-      color: #60a5fa; /* biru untuk program hari ini */
-  }
-    tr.future-row td {
-      color: #e5e7eb; /* putih untuk program akan datang */
-  }
-
+    td { color: #e5e7eb; }
 
     /* Kolum tarikh kecil & tetap */
-    th.col-tarikh,
-    td.col-tarikh {
-      width: 90px;
-      min-width: 90px;
-      max-width: 90px;
+    th.col-tarikh, td.col-tarikh {
+      width: 90px; min-width: 90px; max-width: 90px;
       white-space: nowrap;
       text-align: center;
       font-weight: 600;
       font-size: 0.85rem;
     }
 
-    .col-perihal {
-      font-weight: 500;
-    }
+    .col-perihal { font-weight: 500; }
 
     .col-tempat,
+    .col-kenderaan,
     .col-masa,
+    .col-pegawai,
     .col-catat {
       font-size: 0.82rem;
       color: var(--muted);
-    }
-
-    /* Pastikan teks selain tarikh boleh wrap */
-    td.col-perihal,
-    td.col-tempat,
-    td.col-masa,
-    td.col-catat {
       white-space: normal !important;
     }
+
+    /* Kolum aksi */
+    th.col-actions, td.col-actions {
+      width: 140px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .action-btn {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.75rem;
+      cursor: pointer;
+      margin: 0 3px;
+    }
+    .action-btn:hover { background: rgba(30, 64, 175, 0.9); }
 
     .status-bar {
       display: flex;
@@ -285,51 +235,26 @@
       flex-wrap: wrap;
     }
 
-    .error {
-      color: var(--danger);
-      font-size: 0.8rem;
-      margin-top: 5px;
-    }
+    .error { color: var(--danger); font-size: 0.8rem; margin-top: 5px; }
 
-    /* MODE MOBILE: setiap row jadi macam "kad" supaya catatan jelas dibaca */
+    /* Warna ikut status tarikh */
+    tr.past-row td { color: #f97373; }
+    tr.today-row td { color: #60a5fa; }
+    tr.future-row td { color: #e5e7eb; }
+
+    /* MODE MOBILE: setiap row jadi kad */
     @media (max-width: 640px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
+      header h1 { font-size: 1.3rem; }
+      .card { padding: 10px; }
+      .table-wrapper { max-height: none; border: none; background: transparent; }
 
-      .card {
-        padding: 10px;
-      }
-
-      .table-wrapper {
-        max-height: none;
-      }
-
-      table,
-      thead,
-      tbody,
-      th,
-      td,
-      tr {
-        display: block;
-      }
-
-      thead {
-        display: none;
-      }
-
-      .table-wrapper {
-        border: none;
-        background: transparent;
-      }
-
-      tbody {
-        display: block;
-      }
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
 
       tr {
+        position: relative;
         margin-bottom: 12px;
-        padding: 10px;
+        padding: 10px 8px 8px 8px;
         border-radius: 10px;
         border: 1px solid rgba(148, 163, 184, 0.3);
         background: rgba(15, 23, 42, 0.9);
@@ -340,7 +265,7 @@
         border: none;
         padding: 6px 6px;
         position: relative;
-        padding-left: 90px; /* ruang untuk label kiri */
+        padding-left: 160px;
         min-height: 26px;
         font-size: 0.8rem;
       }
@@ -349,30 +274,51 @@
         position: absolute;
         left: 10px;
         top: 6px;
-        width: 70px;
+        width: 140px;
         color: var(--accent);
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.75rem;
-        text-transform: capitalize;
+        text-transform: uppercase;
       }
 
-      td.col-tarikh::before { content: "Tarikh"; }
-      td.col-perihal::before { content: "Perihal"; }
-      td.col-tempat::before { content: "Tempat"; }
-      td.col-masa::before { content: "Masa"; }
-      td.col-catat::before { content: "Catatan"; }
+      td.col-tarikh::before { content: "TARIKH"; }
+      td.col-perihal::before { content: "PERIHAL"; }
+      td.col-tempat::before { content: "TEMPAT"; }
+      td.col-kenderaan::before { content: "KENDERAAN"; }
+      td.col-masa::before { content: "MASA"; }
+      td.col-pegawai::before { content: "PEGAWAI & ANGGOTA"; }
+      td.col-catat::before { content: "CATATAN"; }
 
-      td.col-tarikh {
-        text-align: left;
+      td.col-tarikh { text-align: left; }
+
+      /* Aksi: butang di penjuru kanan atas */
+      td.col-actions {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        padding-left: 0;
+        min-height: 0;
+        width: auto;
       }
+      td.col-actions::before { content: ""; }
+
+      .action-btn { font-size: 0.7rem; padding: 3px 8px; margin: 0 2px; }
     }
+
+    /* Highlight row/kad yang auto-scroll */
+tr.focus-row {
+  outline: 2px solid rgba(56, 189, 248, 0.9);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <h1>Paparan Aktiviti / Program APM Daerah Klang</h1>
-      
+      <p>Senarai program & aktiviti yang direkodkan dalam Google Sheets (Apps Script API).</p>
     </header>
 
     <div class="card">
@@ -396,29 +342,17 @@
 
           <div class="search-box">
             <span>🔍</span>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Carian...."
-            />
+            <input type="text" id="searchInput" placeholder="Cari tarikh / perihal / tempat / catatan…" />
           </div>
 
-          <button id="refreshBtn" class="refresh-btn" type="button">
-            ↻ Refresh
-          </button>
+          <button id="refreshBtn" class="refresh-btn" type="button">↻ Refresh</button>
         </div>
       </div>
 
       <div class="table-wrapper">
         <table id="dataTable">
-          <thead>
-            <tr id="tableHeadRow">
-              <!-- header diisi melalui JS -->
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <!-- data diisi melalui JS -->
-          </tbody>
+          <thead><tr id="tableHeadRow"></tr></thead>
+          <tbody id="tableBody"></tbody>
         </table>
       </div>
 
@@ -432,10 +366,10 @@
   </div>
 
   <script>
-    // URL Apps Script awak
     const API_URL = "https://script.google.com/macros/s/AKfycbxaeyLXNpIEBJlV5e_rExltO_SrQud-_MNs6W37mhO73y9OROx3cs5auZaZPvbmY2tz/exec";
 
     let allData = [];
+    let renderedData = [];
 
     const tableHeadRow = document.getElementById("tableHeadRow");
     const tableBody = document.getElementById("tableBody");
@@ -448,11 +382,18 @@
     const monthFilter = document.getElementById("monthFilter");
     const refreshBtn = document.getElementById("refreshBtn");
 
-    // Susunan kolum yang kita nak (logik)
-    const COLUMN_ORDER = ["tarikh", "perihal", "tempat", "catatan"];
+    // Susunan kad ikut permintaan awak
+    const COLUMN_SPECS = [
+      { id: "tarikh", label: "TARIKH", matchAny: ["tarikh"] },
+      { id: "perihal", label: "PERIHAL", matchAny: ["perihal", "aktiviti", "program"] },
+      { id: "tempat", label: "TEMPAT", matchAny: ["tempat", "lokasi"] },
+      { id: "kenderaan", label: "KENDERAAN", matchAny: ["kenderaan", "kenderan", "vehicle"] },
+      { id: "masa", label: "MASA", matchAny: ["masa", "waktu", "time", "jam"] },
+      { id: "pegawai", label: "PEGAWAI DAN ANGGOTA", matchAny: ["pegawai", "anggota"] },
+      { id: "catatan", label: "CATATAN", matchAny: ["catatan", "nota", "remarks"] },
+    ];
 
-    // Peta: nama logik → nama sebenar dalam JSON (case-insensitive)
-    let headerMap = {};
+    let headerMap = {}; // id -> actual header key
 
     function normaliseHeaderName(name) {
       return name ? String(name).toLowerCase() : "";
@@ -462,17 +403,93 @@
       headerMap = {};
       const keys = Object.keys(sampleRow || {});
 
-      COLUMN_ORDER.forEach((logical) => {
+      COLUMN_SPECS.forEach((spec) => {
         const found = keys.find((k) => {
           const lower = normaliseHeaderName(k);
-          return lower.includes(logical);
+          return spec.matchAny.some((m) => lower.includes(m));
         });
-        if (found) headerMap[logical] = found;
+        if (found) headerMap[spec.id] = found;
       });
     }
 
+    function formatDateForDisplay(value) {
+      const d = new Date(value);
+      if (isNaN(d)) return value || "";
+      return d.toLocaleDateString("ms-MY", { day: "numeric", month: "numeric", year: "numeric" });
+    }
+
+    function parseDateFromRow(row) {
+      const key = headerMap.tarikh;
+      if (!key) return null;
+      const raw = row[key];
+      if (!raw) return null;
+      const d = new Date(raw);
+      if (isNaN(d)) return null;
+      return d;
+    }
+
+    function getCell(row, id) {
+      const key = headerMap[id];
+      if (!key) return "";
+      const v = row[key];
+      if (v == null) return "";
+      if (id === "tarikh") return formatDateForDisplay(v);
+      return String(v);
+    }
+
+    function splitNames(raw) {
+      // support: newline, comma, semicolon
+      // also handle numbered input like "1. Ali\n2. Abu"
+      const text = (raw || "").toString().trim();
+      if (!text) return [];
+      return text
+        .split(/\r?\n|,|;/g)
+        .map(s => s.trim())
+        .filter(Boolean)
+        .map(s => s.replace(/^\d+\s*[\.\)]\s*/, "").trim())
+        .filter(Boolean);
+    }
+
+    function buildWhatsAppMessage(row) {
+  const tarikh = getCell(row, "tarikh");
+  const perihal = getCell(row, "perihal");
+  const tempat = getCell(row, "tempat");
+  const kenderaan = getCell(row, "kenderaan");
+  const masa = getCell(row, "masa");
+  const pegawaiRaw = getCell(row, "pegawai");
+  const catatan = getCell(row, "catatan");
+
+  const names = splitNames(pegawaiRaw);
+
+  const lines = [];
+  lines.push("*LAPORAN PERGERAKAN PEGAWAI DAN ANGGOTA PERTAHANAN AWAM DAERAH KLANG*");
+  lines.push("");
+  lines.push(`*TARIKH:* ${tarikh}`);
+  lines.push(`*PERIHAL:* ${perihal}`);
+  lines.push(`*TEMPAT:* ${tempat}`);
+  lines.push(`*KENDERAAN:* ${kenderaan}`);
+  lines.push(`*MASA:* ${masa}`);
+  lines.push(`*PEGAWAI DAN ANGGOTA:*`);
+
+  if (names.length === 0) {
+    lines.push("1.-");
+  } else {
+    names.forEach((n, i) => lines.push(`${i + 1}.${n}`));
+  }
+
+  lines.push(`*CATATAN:* ${catatan}`);
+
+  return lines.join("\n");
+}
+
+
+    function openWhatsApp(text) {
+      const url = "https://wa.me/?text=" + encodeURIComponent(text);
+      window.open(url, "_blank");
+    }
+
     async function loadData() {
-      loadingStatus.textContent = "Memuat data ......";
+      loadingStatus.textContent = "Memuat data dari Google Sheets…";
       errorBox.textContent = "";
 
       try {
@@ -499,17 +516,6 @@
       }
     }
 
-    function parseDateFromRow(row) {
-      const key = headerMap.tarikh;
-      if (!key) return null;
-      const raw = row[key];
-      if (!raw) return null;
-
-      const d = new Date(raw);
-      if (isNaN(d)) return null;
-      return d;
-    }
-
     function buildFilterOptions(data) {
       const yearSet = new Set();
       const monthSet = new Set();
@@ -521,183 +527,119 @@
         monthSet.add(d.getMonth() + 1);
       });
 
-      // Reset options
       yearFilter.innerHTML = '<option value="">Semua Tahun</option>';
       monthFilter.innerHTML = '<option value="">Semua Bulan</option>';
 
-      // Tambah tahun
-      Array.from(yearSet)
-        .sort((a, b) => a - b)
-        .forEach((year) => {
-          const opt = document.createElement("option");
-          opt.value = String(year);
-          opt.textContent = year;
-          yearFilter.appendChild(opt);
-        });
+      Array.from(yearSet).sort((a, b) => a - b).forEach((year) => {
+        const opt = document.createElement("option");
+        opt.value = String(year);
+        opt.textContent = year;
+        yearFilter.appendChild(opt);
+      });
 
-      // Nama bulan
-      const monthNames = [
-        "", "Januari", "Februari", "Mac", "April", "Mei", "Jun",
-        "Julai", "Ogos", "September", "Oktober", "November", "Disember"
-      ];
+      const monthNames = ["", "Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai", "Ogos", "September", "Oktober", "November", "Disember"];
+      Array.from(monthSet).sort((a, b) => a - b).forEach((m) => {
+        const opt = document.createElement("option");
+        opt.value = String(m);
+        opt.textContent = monthNames[m] || m;
+        monthFilter.appendChild(opt);
+      });
 
-      // Tambah bulan
-      Array.from(monthSet)
-        .sort((a, b) => a - b)
-        .forEach((m) => {
-          const opt = document.createElement("option");
-          opt.value = String(m);
-          opt.textContent = monthNames[m] || m;
-          monthFilter.appendChild(opt);
-        });
-
-      // Default: tahun & bulan semasa (jika wujud dalam data)
       const now = new Date();
       const currentYear = now.getFullYear();
       const currentMonth = now.getMonth() + 1;
 
-      if (yearSet.has(currentYear)) {
-        yearFilter.value = String(currentYear);
-      }
-
-      if (monthSet.has(currentMonth)) {
-        monthFilter.value = String(currentMonth);
-      }
-    }
-
-    function formatDateForDisplay(value) {
-      const d = new Date(value);
-      if (isNaN(d)) return value || "";
-      return d.toLocaleDateString("ms-MY", {
-        day: "numeric",
-        month: "numeric",
-        year: "numeric",
-      });
+      if (yearSet.has(currentYear)) yearFilter.value = String(currentYear);
+      if (monthSet.has(currentMonth)) monthFilter.value = String(currentMonth);
     }
 
     function renderTable(data) {
-  tableBody.innerHTML = "";
-  tableHeadRow.innerHTML = "";
+      renderedData = data.slice();
+      tableBody.innerHTML = "";
+      tableHeadRow.innerHTML = "";
 
-  if (!data || data.length === 0) {
-    rowCount.textContent = "0 rekod";
-    return;
-  }
-
-  // Ambil keys dari item pertama (header)
-  const headers = Object.keys(data[0]);
-
-  // Bina header table
-  headers.forEach((h) => {
-    const th = document.createElement("th");
-    th.textContent = h;
-    const lower = h.toLowerCase();
-    if (lower.includes("tarikh")) {
-      th.classList.add("col-tarikh");
-    }
-    tableHeadRow.appendChild(th);
-  });
-
-  // Cari header tarikh
-  const dateHeader = headers.find((h) => h.toLowerCase().includes("tarikh"));
-
-  // Tarikh hari ini (tanpa masa)
-  const today = new Date();
-  const todayDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate()
-  );
-
-  // Susun data ikut tarikh (paling awal -> paling lewat)
-  const sorted = [...data].sort((a, b) => {
-    if (!dateHeader) return 0;
-
-    const va = a[dateHeader];
-    const vb = b[dateHeader];
-
-    const daRaw = va ? new Date(va) : null;
-    const dbRaw = vb ? new Date(vb) : null;
-
-    if (!daRaw && !dbRaw) return 0;
-    if (!daRaw) return 1;
-    if (!dbRaw) return -1;
-
-    const da = new Date(
-      daRaw.getFullYear(),
-      daRaw.getMonth(),
-      daRaw.getDate()
-    );
-    const db = new Date(
-      dbRaw.getFullYear(),
-      dbRaw.getMonth(),
-      dbRaw.getDate()
-    );
-
-    return da - db; // tukar ke (db - da) kalau mahu yang terbaru di atas
-  });
-
-  // Bina rows
-  sorted.forEach((row) => {
-    const tr = document.createElement("tr");
-
-    // Tentukan status program: lepas / hari ini / akan datang
-    if (dateHeader && row[dateHeader]) {
-      const dRaw = new Date(row[dateHeader]);
-      if (!isNaN(dRaw)) {
-        const dDate = new Date(
-          dRaw.getFullYear(),
-          dRaw.getMonth(),
-          dRaw.getDate()
-        );
-        if (dDate < todayDate) {
-          tr.classList.add("past-row");   // program lepas (merah)
-        } else if (dDate > todayDate) {
-          tr.classList.add("future-row"); // program akan datang (putih)
-        } else {
-          tr.classList.add("today-row");  // program hari ini (biru)
-        }
-      }
-    }
-
-    headers.forEach((h) => {
-      const td = document.createElement("td");
-      let value = row[h] ?? "";
-
-      const lower = h.toLowerCase();
-
-      // Jika kolum Tarikh → format cantik
-      if (lower.includes("tarikh")) {
-        const d = new Date(value);
-        if (!isNaN(d)) {
-          // Format tarikh ikut Malaysia: 1/11/2025
-          value = d.toLocaleDateString("ms-MY", {
-            day: "numeric",
-            month: "numeric",
-            year: "numeric",
-          });
-        }
-        td.classList.add("col-tarikh");
-      } else if (lower.includes("perihal") || lower.includes("aktiviti")) {
-        td.classList.add("col-perihal");
-      } else if (lower.includes("tempat")) {
-        td.classList.add("col-tempat")
-      }else if (lower.includes("masa") || lower.includes("waktu")) {
-        td.classList.add("col-masa");
-      }else if (lower.includes("catatan") || lower.includes("nota")) {
-        td.classList.add("col-catat");
+      if (!data || data.length === 0) {
+        rowCount.textContent = "0 rekod";
+        return;
       }
 
-      td.textContent = value;
-      tr.appendChild(td);
-    });
+      // Header ikut COLUMN_SPECS (yang wujud sahaja)
+      COLUMN_SPECS.forEach((spec) => {
+        const actualKey = headerMap[spec.id];
+        if (!actualKey) return;
 
-    tableBody.appendChild(tr);
-  });
+        const th = document.createElement("th");
+        th.textContent = actualKey;
+        if (spec.id === "tarikh") th.classList.add("col-tarikh");
+        tableHeadRow.appendChild(th);
+      });
 
-  rowCount.textContent = data.length + " rekod dipaparkan";
-}
+      // Header aksi
+      const thAction = document.createElement("th");
+      thAction.textContent = "Aksi";
+      thAction.classList.add("col-actions");
+      tableHeadRow.appendChild(thAction);
 
+      const today = new Date();
+      const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+      data.forEach((row, index) => {
+        const tr = document.createElement("tr");
+        tr.dataset.index = String(index);
+
+        // warna ikut status tarikh
+        const d = parseDateFromRow(row);
+        if (d) {
+          const dDate = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+          if (dDate < todayDate) tr.classList.add("past-row");
+          else if (dDate > todayDate) tr.classList.add("future-row");
+          else tr.classList.add("today-row");
+        }
+
+        COLUMN_SPECS.forEach((spec) => {
+          const actualKey = headerMap[spec.id];
+          if (!actualKey) return;
+
+          const td = document.createElement("td");
+          td.classList.add("col-" + spec.id);
+
+          let value = row[actualKey] ?? "";
+          if (spec.id === "tarikh") value = formatDateForDisplay(value);
+
+          td.textContent = value;
+          tr.appendChild(td);
+        });
+
+        // Aksi: Copy + WA
+        const actionTd = document.createElement("td");
+        actionTd.classList.add("col-actions");
+
+        const btnCopy = document.createElement("button");
+        btnCopy.type = "button";
+        btnCopy.className = "action-btn copy-card-btn";
+        btnCopy.textContent = "Copy";
+
+        const btnWA = document.createElement("button");
+        btnWA.type = "button";
+        btnWA.className = "action-btn wa-btn";
+        btnWA.textContent = "WA";
+
+        actionTd.appendChild(btnCopy);
+        actionTd.appendChild(btnWA);
+
+        tr.appendChild(actionTd);
+        tableBody.appendChild(tr);
+      });
+
+      rowCount.textContent = data.length + " rekod dipaparkan";
+
+      // Auto-scroll sekali sahaja (masa load/refresh)
+        if (shouldAutoScroll) {
+            shouldAutoScroll = false;
+            setTimeout(scrollToRelevantEvent, 150); // tunggu DOM siap
+        }
+
+    }
 
     function applyFilters() {
       const term = searchInput.value.toLowerCase().trim();
@@ -706,7 +648,6 @@
 
       let filtered = allData.slice();
 
-      // Tapis Tahun & Bulan
       if (yearVal || monthVal) {
         filtered = filtered.filter((row) => {
           const d = parseDateFromRow(row);
@@ -720,41 +661,122 @@
         });
       }
 
-      // Tapis search
       if (term) {
         filtered = filtered.filter((row) => {
-          return Object.values(row).some((v) =>
-            String(v).toLowerCase().includes(term)
-          );
+          return Object.values(row).some((v) => String(v).toLowerCase().includes(term));
         });
       }
+
+      // Sort ikut tarikh (awal -> lewat)
+      filtered.sort((a, b) => {
+        const da = parseDateFromRow(a);
+        const db = parseDateFromRow(b);
+        if (!da && !db) return 0;
+        if (!da) return 1;
+        if (!db) return -1;
+        const daDate = new Date(da.getFullYear(), da.getMonth(), da.getDate());
+        const dbDate = new Date(db.getFullYear(), db.getMonth(), db.getDate());
+        return daDate - dbDate;
+      });
 
       renderTable(filtered);
     }
 
-    // Event listeners
-    searchInput.addEventListener("input", () => {
-      applyFilters();
+    // Klik actions: Copy / WhatsApp
+    tableBody.addEventListener("click", async (e) => {
+      const tr = e.target.closest("tr");
+      if (!tr) return;
+
+      const idx = tr.dataset.index;
+      if (idx == null) return;
+
+      const row = renderedData[Number(idx)];
+      if (!row) return;
+
+      // Copy (ikut susunan COLUMN_SPECS)
+      const copyBtn = e.target.closest(".copy-card-btn");
+      if (copyBtn) {
+        const lines = [];
+        COLUMN_SPECS.forEach((spec) => {
+          const val = getCell(row, spec.id);
+          if (!val) return;
+          lines.push(spec.label + ": " + val);
+        });
+
+        const text = lines.join("\n");
+
+        try {
+          await navigator.clipboard.writeText(text);
+          const originalText = copyBtn.textContent;
+          copyBtn.textContent = "✔";
+          setTimeout(() => (copyBtn.textContent = originalText || "Copy"), 1000);
+        } catch (err) {
+          console.error(err);
+          alert("Gagal salin ke clipboard.");
+        }
+        return;
+      }
+
+      // WhatsApp
+      const waBtn = e.target.closest(".wa-btn");
+      if (waBtn) {
+        const msg = buildWhatsAppMessage(row);
+        openWhatsApp(msg);
+      }
     });
 
-    yearFilter.addEventListener("change", () => {
-      applyFilters();
-    });
-
-    monthFilter.addEventListener("change", () => {
-      applyFilters();
-    });
+    // Events
+    searchInput.addEventListener("input", applyFilters);
+    yearFilter.addEventListener("change", applyFilters);
+    monthFilter.addEventListener("change", applyFilters);
 
     refreshBtn.addEventListener("click", () => {
-      // Clear filters & search, then reload dari server
       searchInput.value = "";
       yearFilter.value = "";
       monthFilter.value = "";
+      shouldAutoScroll = true;
       loadData();
     });
 
-    // Mula sekali
     loadData();
+
+    // 🔄 Auto refresh setiap 2 jam (2 jam × 60 min × 60 saat × 1000 ms)
+    const AUTO_REFRESH_INTERVAL = 2 * 60 * 60 * 1000;
+
+    setInterval(() => {
+    console.log("Auto refresh data (2 jam)");
+    loadData();
+        }, AUTO_REFRESH_INTERVAL);
+
+        let shouldAutoScroll = true; // auto-scroll hanya bila page load / refresh
+
+function scrollToRelevantEvent() {
+  const wrapper = document.querySelector(".table-wrapper");
+  if (!wrapper) return;
+
+  // Buang highlight lama
+  document.querySelectorAll("tr.focus-row").forEach(el => el.classList.remove("focus-row"));
+
+  const rows = Array.from(tableBody.querySelectorAll("tr"));
+  if (rows.length === 0) return;
+
+  // 1) Cari hari ini
+  let target = rows.find(r => r.classList.contains("today-row"));
+
+  // 2) Kalau tiada, cari event akan datang (future) yang terawal
+  if (!target) target = rows.find(r => r.classList.contains("future-row"));
+
+  // 3) Kalau tiada juga, pergi event terakhir
+  if (!target) target = rows[rows.length - 1];
+
+  target.classList.add("focus-row");
+
+  // Scroll dalam wrapper (lebih stabil dari scrollIntoView bila ada container scroll)
+  const top = target.offsetTop - 8; // padding sikit
+  wrapper.scrollTo({ top, behavior: "smooth" });
+}
+
+
   </script>
 </body>
 </html>
